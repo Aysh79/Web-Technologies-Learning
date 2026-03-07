@@ -74,6 +74,7 @@ input{
     align-items: flex-start;
     padding-bottom: 20px;
     scroll-behavior: smooth;
+    margin-bottom: 20px;
 }
 
 .product-container::-webkit-scrollbar{
@@ -104,22 +105,76 @@ input{
     margin-bottom: 10px;
     font-size: 22px;
     font-weight: normal;
+    height: 50px;
 }
 
+.product-actions {
+  display: flex;
+  flex-direction: column;   /* dropdown on top, button below */
+  gap: 10px;                /* space between dropdown and button */
+  align-items: center;
+  width: 100%;              /* take full card width */
+  margin-top: 10px;
+}
+.dropdown-placeholder {
+  height: 33px;             /* same height as dropdown */
+  width: 100%;              /* same width as button */
+}
+
+.size-variants {
+  width: 100%;              /* same width as button */
+  max-width: 250px;         /* optional max width */
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #fff;   /* thin white border for Netflix look */
+  background-color: #000;   /* black background */
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  appearance: none;         /* removes default arrow style */
+}
+
+.cart-btn {
+  width: 100%;              /* full width of card */
+  max-width: 250px;         /* optional max width */
+  padding: 12px 0;
+  background-color: #e50914; /* Netflix red */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.cart-btn:hover {
+  background-color: #b00610;  /* darker red on hover */
+}
 .product-card{
-    padding: 10px;
-    background-color: #222;
+    padding: 0px;
+    background-color: #000000;
     color: white;
     border-radius: 8px;
     flex: 0 0 250px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    size: border-box;
+    align-items: center;
+    margin-bottom: 20px;
+    
 }
 
 .product-card img{
     width: 100%;
     border-radius: 4px;
+    display: block;
+    transition: transform 0.3s ease; /* smooth zoom */
+}
+.product-card:hover img {
+    transform: scale(1.1); /* zooms 10% */
 }
 
 .product-card h3{
@@ -294,7 +349,7 @@ input{
 }
 
 .panel:hover{
-  flex: 4;
+  flex: 7;
 }
 
 .panel{
@@ -333,5 +388,46 @@ input{
     font-weight: 700;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center; /* keeps multiline text centered */
+    z-index: 2; /* ensures text is above any overlay */
+}
+
+.collage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.collage-item {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ensures full coverage */
+  display: block;     /* removes small gaps under images */
+  transition: transform 0.5s ease;
+}
+
+/* Hover: zoom in slightly */
+.collage-item:hover img {
+  transform: scale(1.07);     /* zoom in */
+}
+
+.collage-item-label{
+    position: absolute;
+    top: 90%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-size: 32px; /* adjust as needed */
+    color: rgb(255, 245, 245);
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left; /* keeps multiline text centered */
     z-index: 2; /* ensures text is above any overlay */
 }
