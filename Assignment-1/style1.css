@@ -1,8 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+   box-sizing: border-box;
 }
+
 
 body{
     background-color: black;
@@ -47,21 +48,26 @@ input{
 }
 
 .hero{
-    text-align: center;
-    color: white;
-    padding: 50px 20px;
-    background-color: black;
+  position: relative;
+  height: 100%;       /* full screen height */
+  width: 100%;
+  overflow: hidden;
 }
 
-.hero h2{
-    font-size: 36px;
-    margin-bottom: 20px;
+.hero img{
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;   /* makes image fill like Netflix banners */
+  display: block;
 }
 
-.hero button{
-    margin-top: 20px;
-    font-size: 18px;
-    padding: 12px 25px;
+.hero-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
 }
 
 .product-container{
@@ -75,6 +81,7 @@ input{
     padding-bottom: 20px;
     scroll-behavior: smooth;
     margin-bottom: 20px;
+    margin: auto;
 }
 
 .product-container::-webkit-scrollbar{
@@ -156,7 +163,7 @@ input{
     padding: 0px;
     background-color: #000000;
     color: white;
-    border-radius: 8px;
+    border-radius: 0px;
     flex: 0 0 250px;
     box-sizing: border-box;
     display: flex;
@@ -180,6 +187,13 @@ input{
 .product-card h3{
     margin: 10px 0 0;
     font-size: 16px;
+    font-weight: bold;
+}
+.product-card p{
+    margin: 5px 0 15px;
+    font-size: 16px;
+    color: #white;
+    font-weight: bold;
 }
 
 .footer{
@@ -393,7 +407,7 @@ input{
 
 .collage {
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   padding: 0;
@@ -408,7 +422,7 @@ input{
 
 .collage-item img {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;  /* ensures full coverage */
   display: block;     /* removes small gaps under images */
   transition: transform 0.5s ease;
