@@ -4,40 +4,133 @@
 <head>
     <title>Netflix Shop Clone</title>
     <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- Icons (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div class="page-container">
 
-        <!--NAVBAR-->
+        <!-- 🔴 TOP ANNOUNCEMENT BAR -->
+        <div class="top-bar">
+            Happy Fans, Happy Honmoon!
+            <a href="#">Shop the KPop Demon Hunters Collection</a>
+            <span class="close-btn">&times;</span>
+        </div>
+
+        <!-- 🧭 NAVBAR -->
         <header class="navbar">
-            <div
-                <h1>NETFLIX</h1>
-            
-            </div>
+        <div class="logo">NETFLIX</div>
 
+        <nav class="menu">
+            <a href="#">Titles</a>
+            <a href="#">Products</a>
+            <a href="#">Gifts</a>
+            <a href="#">KPop Demon Hunters</a>
+            <a href="#">Stranger Things</a>
+            <a href="#">Bridgerton</a>
+            <a href="#">One Piece</a>
+        </nav>
 
-            <nav>
-                <a href="#">Titles</a>
-                <a href="#">Products</a>
-                <a href="#">Collections</a>
-            </nav>
-
-            <div>
-                <input type="text" placeholder="Search">
-                <button>Account</button>
-                <button>Cart</button>
-            </div>
+        <div class="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>  <!-- search -->
+            <i class="fa-regular fa-user"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-bag-shopping"></i>      <!-- cart -->
+        </div>
         </header>
-
-        <hr>
 
         <!--Hero/Banner SEction--> 
         <section class="hero">
+            <img src="images/Property_1_One_Piece_3-22_2_1728x.webp" alt="banner">
+            <div class="hero-text">
+                <h1>Set Sail in Style</h1>
+                <p>Your family's invitation to the straw hat crew is officially open.</p>
+                <button>Shop One Piece</button>
+            </div>
+        </section>
+        <section class="products">
+            <div class="product-container">
+                <!--Product Card-->
+                <div class="product-card">
+                    <img src="images/qq.webp" alt="socks">
+                    <h3>One Piece T-Shirt</h3>
+                    <p>Rs.8,500.00</p>
+                </div>
+                <div class="product-card">
+
+                    <img src="images/ww.webp" alt="socks">
+                    <h3>One Piece T-Shirt</h3>
+                    <p>Rs.10,500.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/ee.webp" alt="socks">
+                    <h3>One Piece T-Shirt</h3>
+                    <p>Rs.8,600.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/rr.webp" alt="socks">
+                    <h3>One Piece T-Shirt</h3>
+                    <p>Rs.14,200.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/tt.webp" alt="socks">
+                    <h3>One Piece T-Shirt</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/yy.webp" alt="socks">
+                    <h3>One Piece T-Shirt</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+
+            </div>
+        </section>
+        -----------------------
+        <section class="hero">
             <img src="images/b1.webp" alt="banner">
             <div class="hero-text">
+                <h1>Live Like A Bridgerton</h1>
+                <p>The Season's most coveted collection has arrived!</p>
+                <button>Shop Collection</button>
+            </div>
+            </div>
+        </section>
+        <section class="products">
+            <div class="product-container">
+                <!--Product Card-->
+                <div class="product-card">
+                    <img src="images/aa.webp" alt="socks">
+                    <h3>Kpop Demon Hunters HUNTR/X Overfaded T-Shirt</h3>
+                    <p>Rs.8,500.00</p>
+                </div>
+                <div class="product-card">
+
+                    <img src="images/ss.webp" alt="socks">
+                    <h3>Kpop Demon Hunters HUNTR/X Kids T-Shirt</h3>
+                    <p>Rs.10,500.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/dd.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Comfort Colors T-Shirt Mira Golden</h3>
+                    <p>Rs.8,600.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/ff.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Mira Pop Figure What it Sounds Like!</h3>
+                    <p>Rs.14,200.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/gg.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Comfort Colors T-Shirt Zoey Golden</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/hh.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Mira Pop Figure What it Sounds Like!</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+
             </div>
         </section>
         -----------------------
@@ -45,6 +138,46 @@
         <section class="hero">
             <img src="images/b2.webp" alt="banner">
             <div class="hero-text">
+                <h1>GET IT HERE FIRST AT NETFLIX SHOP</h1>
+                <p>Shop the Love is Blind, exclusively at the Netflix Shop. Be one of the first to own this!</p>
+                <button>Shop Collection</button>
+            </div>
+        </section>
+        <section class="products">
+            <div class="product-container">
+                <!--Product Card-->
+                <div class="product-card">
+                    <img src="images/zz.jpg" alt="socks">
+                    <h3>Kpop Demon Hunters HUNTR/X Overfaded T-Shirt</h3>
+                    <p>Rs.8,500.00</p>
+                </div>
+                <div class="product-card">
+
+                    <img src="images/xx.webp" alt="socks">
+                    <h3>Kpop Demon Hunters HUNTR/X Kids T-Shirt</h3>
+                    <p>Rs.10,500.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/cc.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Comfort Colors T-Shirt Mira Golden</h3>
+                    <p>Rs.8,600.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/vv.jpg" alt="socks">
+                    <h3>Kpop Demon Hunters Mira Pop Figure What it Sounds Like!</h3>
+                    <p>Rs.14,200.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/bb.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Comfort Colors T-Shirt Zoey Golden</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/nn.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Mira Pop Figure What it Sounds Like!</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+
             </div>
         </section>
         -----------------------
@@ -52,12 +185,55 @@
         <section class="hero">
             <img src="images/b3.webp" alt="banner">
             <div class="hero-text">
+                <h1>GET IT HERE FIRST AT NETFLIX SHOP</h1>
+                <p>Shop the Hellfire Lives Ringer, exclusively at the Netflix Shop. Be one of the first to own this!</p>
+                <button>Shop Collection</button>
+            </div>
+        </section>
+        <section class="products">
+            <div class="product-container">
+                <!--Product Card-->
+                <div class="product-card">
+                    <img src="images/jj.webp" alt="socks">
+                    <h3>Kpop Demon Hunters HUNTR/X Overfaded T-Shirt</h3>
+                    <p>Rs.8,500.00</p>
+                </div>
+                <div class="product-card">
+
+                    <img src="images/22.webp" alt="socks">
+                    <h3>Kpop Demon Hunters HUNTR/X Kids T-Shirt</h3>
+                    <p>Rs.10,500.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/33.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Comfort Colors T-Shirt Mira Golden</h3>
+                    <p>Rs.8,600.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/44.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Mira Pop Figure What it Sounds Like!</h3>
+                    <p>Rs.14,200.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/66.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Comfort Colors T-Shirt Zoey Golden</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="images/77.webp" alt="socks">
+                    <h3>Kpop Demon Hunters Mira Pop Figure What it Sounds Like!</h3>
+                    <p>Rs.8,800.00</p>
+                </div>
+
             </div>
         </section>
         -------------------------
         <section class="hero">
             <img src="images/b4.webp" alt="banner">
             <div class="hero-text">
+                <h1>Happy Fans, Happy Honmoon</h1>
+                <p>By Fans, for Stans. Shop the Official Kpop Demon Hunters Collection</p>
+                <button>Shop New & Trending</button>
             </div>
         </section>
 
@@ -501,6 +677,12 @@
                 
         
 
+    </div>
+
+    <!-- 📌 SIDE DISCOUNT TAB -->
+    <div class="side-offer">
+        Get 15% Off
+        <span class="side-close">&times;</span>
     </div>
 
 </body>

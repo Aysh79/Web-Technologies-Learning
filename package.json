@@ -1,0 +1,24 @@
+{
+  "name": "web-technologies-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aysh79/Web-Technologies-Learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aysh79/Web-Technologies-Learning/issues"
+  },
+  "homepage": "https://github.com/Aysh79/Web-Technologies-Learning#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
