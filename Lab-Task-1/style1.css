@@ -577,6 +577,37 @@ input{
   font-size: 18px;
 }
 
+/* ========================= */
+/* 💻 TABLET VIEW (BONUS) */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .menu a {
+    font-size: 13px;
+    margin: 0 6px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .products h2 {
+    font-size: 40px;
+  }
+
+  .product-card {
+    flex: 0 0 220px;
+  }
+
+  .footer-top {
+    gap: 40px;
+  }
+}
 
 /* ========================= */
 /* 📱 MOBILE RESPONSIVE */
