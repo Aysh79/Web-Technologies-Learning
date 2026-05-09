@@ -3,12 +3,20 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+const productRoutes = require("./routes/productRoutes");
+
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "public")));
+
+
+const PORT = 3000;
 
 // EJS
 app.set("view engine", "ejs");
 
 
-// DATABASE CONNECTION
+// DATABASE
 mongoose.connect("mongodb://localhost:27017/ecommerce")
 .then(() => {
     console.log("MongoDB Connected");
@@ -18,12 +26,24 @@ mongoose.connect("mongodb://localhost:27017/ecommerce")
 });
 
 
-// ROUTE
+// ROUTES
+app.use(productRoutes);
+
+
 app.get("/", (req, res) => {
-    res.send("Home Page");
+    res.render("index");
 });
 
 
-app.listen(3000, () => {
-    console.log("Server Running");
+// app.listen(PORT, () => {
+//     console.log(`Server Running on port ${PORT}`);
+// });
+
+
+app.listen(PORT, () => {
+    console.log(`Server Running on port ${PORT}`);
+    console.log("MongoDB Connected");
+
+    
+
 });
