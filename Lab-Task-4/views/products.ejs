@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products</title>
+
+    <style>
+
+        body{
+            background: #141414;
+            color: white;
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        h1{
+            color: red;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-grid .product-card {
+            background-color: #000;
+            color: white;
+            border-radius: 0;
+            flex: none;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-grid .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-grid .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card{
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .card img{
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card:hover{
+            transform: scale(1.03);
+        }
+
+        .price{
+            color: lightgreen;
+        }
+
+        .pagination {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pagination a {
+            padding: 8px 12px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            background: red;
+        }
+
+
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin: 20px 0;
+            background: #111;
+            border-radius: 10px;
+        }
+
+        .filter-bar input,
+        .filter-bar select {
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+            min-width: 180px;
+        }
+
+        .filter-bar button {
+            background: red;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Netflix Style Products</h1>
+
+    <div class="filter-bar">
+
+        <form action="/products" method="GET">
+
+            <input type="text" name="search" placeholder="Search..." value="<%= search || '' %>">
+
+            <select name="category">
+                <option value="">All</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Home">Home</option>
+            </select>
+
+            <input type="number" name="minPrice" placeholder="Min Price" value="<%= minPrice || '' %>">
+
+            <input type="number" name="maxPrice" placeholder="Max Price" value="<%= maxPrice || '' %>">
+
+            <select name="sort">
+                <option value="">Sort By</option>
+                <option value="priceLow">Price: Low → High</option>
+                <option value="priceHigh">Price: High → Low</option>
+                <option value="ratingHigh">Rating</option>
+            </select>
+
+            <button type="submit">Apply</button>
+
+        </form>
+
+    </div>
+
+    <div class="product-grid">
+
+        <% products.forEach(product => { %>
+
+            <div class="card">
+                <img src="<%= product.image %>" alt="">
+
+                <h2><%= product.name %></h2>
+
+                <p class="price">
+                    Rs. <%= product.price %>
+                </p>
+
+                <p>
+                    Category:
+                    <%= product.category %>
+                </p>
+
+                <p>
+                    Rating:
+                    ⭐ <%= product.rating %>
+                </p>
+
+                <p>
+                    Stock:
+                    <%= product.stock %>
+                </p>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+    <div class="pagination">
+
+        <% if(currentPage > 1) { %>
+            <a href="/products?page=<%= currentPage - 1 %>&search=<%= search %>&category=<%= category %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>">
+                Prev
+            </a>
+        <% } %>
+
+
+        <% for(let i = 1; i <= totalPages; i++) { %>
+
+            <a href="/products?page=<%= i %>&search=<%= search %>&category=<%= category %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>">
+                <%= i %>
+            </a>
+
+        <% } %>
+
+
+        <% if(currentPage < totalPages) { %>
+            <a href="/products?page=<%= currentPage + 1 %>&search=<%= search %>&category=<%= category %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>">
+                Next
+            </a>
+        <% } %>
+
+    </div>
+
+</body>
+</html>

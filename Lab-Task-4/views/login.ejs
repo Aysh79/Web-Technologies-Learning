@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login – Netflix Shop</title>
+    <link rel="stylesheet" href="/style1.css">
+</head>
+
+<body class="auth-page">
+
+<div class="auth-container">
+
+    <h1>LOGIN</h1>
+
+    <% if (success && success.length > 0) { %>
+        <p class="auth-success"><%= success.join(" ") %></p>
+    <% } %>
+
+    <% if (error && error.length > 0) { %>
+        <p class="auth-error"><%= error.join(" ") %></p>
+    <% } %>
+
+    <form action="/login" method="POST" class="auth-form">
+
+        <input type="email" name="email" placeholder="Email" required>
+
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p style="text-align:center;">
+        <a href="/register">Register</a>
+    </p>
+
+</div>
+
+</body>
+</html>

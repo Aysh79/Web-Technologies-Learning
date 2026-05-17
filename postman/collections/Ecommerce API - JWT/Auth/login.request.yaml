@@ -1,0 +1,30 @@
+$kind: http-request
+name: 'POST /api/v1/auth/login'
+method: POST
+url: '{{base_url}}/api/v1/auth/login'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "user@example.com",
+      "password": "password123"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Login response contains token', function () {
+        pm.response.to.have.status(200);
+        const json = pm.response.json();
+        pm.expect(json).to.have.property('token');
+      });
+      
+      const json = pm.response.json();
+      if (json && json.token) {
+        pm.environment.set('jwt_token', json.token);
+        console.log('JWT token saved to environment variable jwt_token');
+      }

@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:3000/api/v1/orders
+url: http://localhost:3000/api/v1/orders
+method: POST
+headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNmEwOTU2NzJiMmRjY2UxMzU0M2U2YzRjIiwidXNlcklkIjoiNmEwOTU2NzJiMmRjY2UxMzU0M2U2YzRjIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzc5MDA1NTg3LCJleHAiOjE3NzkwMDkxODd9.PxrXvqcIXMOVvXRcOiQRX0EOv8zX_0I2VscNSnWBUGQ
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"items\": [\r
+
+    \    {\r
+
+    \      \"productId\": \"69ff3655b9dc13743e7eb589\",\r
+
+    \      \"quantity\": 1\r
+
+    \    }\r
+
+    \  ]\r
+
+    }"
+order: 139977929262024

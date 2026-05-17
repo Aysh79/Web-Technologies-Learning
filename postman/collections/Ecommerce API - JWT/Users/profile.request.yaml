@@ -1,0 +1,22 @@
+$kind: http-request
+name: 'GET /api/v1/user/profile'
+method: GET
+url: '{{base_url}}/api/v1/user/profile'
+order: 1000
+headers:
+  - key: Authorization
+    value: 'Bearer {{jwt_token}}'
+scripts:
+  - type: beforeRequest
+    language: text/javascript
+    code: |-
+      const token = pm.environment.get('jwt_token');
+      
+      if (!token) {
+        throw new Error('Missing jwt_token in Development environment. Run login first.');
+      }
+      
+      pm.request.headers.upsert({
+        key: 'Authorization',
+        value: `Bearer ${token}`
+      });

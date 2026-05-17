@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile – Netflix Shop</title>
+    <link rel="stylesheet" href="/style1.css">
+</head>
+
+<body class="profile-page">
+
+    <header class="profile-header">
+        <a class="profile-logo" href="/">NETFLIX</a>
+        <nav class="profile-nav">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <% if (currentUser.role === 'admin') { %>
+                <a href="/admin">Admin Panel</a>
+            <% } %>
+            <a href="/logout" class="profile-logout">Logout</a>
+        </nav>
+    </header>
+
+    <main class="profile-main">
+        <section class="profile-hero">
+            <p>Account</p>
+            <h1>My Profile</h1>
+        </section>
+
+        <% if (success && success.length > 0) { %>
+            <p class="auth-success"><%= success.join(" ") %></p>
+        <% } %>
+
+        <% if (error && error.length > 0) { %>
+            <p class="auth-error"><%= error.join(" ") %></p>
+        <% } %>
+
+        <section class="profile-content">
+            <div class="profile-avatar">
+                <%= currentUser.name.charAt(0).toUpperCase() %>
+            </div>
+
+            <div class="profile-details">
+                <h2><%= currentUser.name %></h2>
+                <p class="profile-email"><%= currentUser.email %></p>
+
+                <div class="profile-info-grid">
+                    <div>
+                        <span>Name</span>
+                        <strong><%= currentUser.name %></strong>
+                    </div>
+
+                    <div>
+                        <span>Email</span>
+                        <strong><%= currentUser.email %></strong>
+                    </div>
+
+                    <div>
+                        <span>Role</span>
+                        <strong><%= currentUser.role %></strong>
+                    </div>
+
+                    <div>
+                        <span>Status</span>
+                        <strong>Logged in</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
