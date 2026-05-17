@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Product = require("./models/product");
+const User = require("./models/User");
 
 mongoose.connect("mongodb://127.0.0.1:27017/ecommerce");
 
@@ -177,7 +178,20 @@ async function seedData() {
   await Product.deleteMany();
   await Product.insertMany(products);
 
+  const adminEmail = "admin@example.com";
+  const existingAdmin = await User.findOne({ email: adminEmail });
+
+  if (!existingAdmin) {
+    await User.create({
+      name: "Admin User",
+      email: adminEmail,
+      password: "admin123",
+      role: "admin"
+    });
+  }
+
   console.log("BIG Dataset Inserted");
+  console.log("Admin login: admin@example.com / admin123");
   mongoose.connection.close();
 }
 

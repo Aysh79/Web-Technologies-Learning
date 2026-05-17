@@ -1,48 +1,20 @@
-function isLoggedIn(req, res, next){
+function isLoggedIn(req, res, next) {
+  if (req.session.user) return next();
 
-    if(!req.session.user){
-
-        req.flash(
-            "error",
-            "Please login first"
-        );
-
-        return res.redirect("/login");
-
-    }
-
-    next();
-
+  req.flash("error", "You must be logged in to access that page.");
+  return res.redirect("/login");
 }
 
+function isAdmin(req, res, next) {
+  if (req.session.user && req.session.user.role === "admin") return next();
 
-function isAdmin(req, res, next){
+  if (!req.session.user) {
+    req.flash("error", "Please log in as an admin to access the admin panel.");
+    return res.redirect("/login");
+  }
 
-    if(
-
-        !req.session.user ||
-
-        req.session.user.role !== "admin"
-
-    ){
-
-        req.flash(
-            "error",
-            "Access Denied"
-        );
-
-        return res.redirect("/");
-
-    }
-
-    next();
-
+  req.flash("error", "Access Denied: Admins only.");
+  return res.redirect("/");
 }
 
-module.exports = {
-
-    isLoggedIn,
-
-    isAdmin
-
-};
+module.exports = { isLoggedIn, isAdmin };

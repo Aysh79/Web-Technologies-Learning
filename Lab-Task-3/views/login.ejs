@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <title>Login</title>
-
+    <title>Login – Netflix Shop</title>
     <link rel="stylesheet" href="/style1.css">
-
 </head>
 
 <body class="auth-page">
 
-    <div class="auth-container">
+<div class="auth-container">
 
-        <h1>LOGIN</h1>
+    <h1>LOGIN</h1>
 
-        <form
-            action="/login"
-            method="POST"
-            class="auth-form"
-        >
+    <% if (success && success.length > 0) { %>
+        <p class="auth-success"><%= success.join(" ") %></p>
+    <% } %>
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-            >
+    <% if (error && error.length > 0) { %>
+        <p class="auth-error"><%= error.join(" ") %></p>
+    <% } %>
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-            >
+    <form action="/login" method="POST" class="auth-form">
 
-            <button type="submit">
+        <input type="email" name="email" placeholder="Email" required>
 
-                Login
+        <input type="password" name="password" placeholder="Password" required>
 
-            </button>
+        <button type="submit">Login</button>
 
-        </form>
+    </form>
 
-    </div>
+    <p style="text-align:center;">
+        <a href="/register">Register</a>
+    </p>
+
+</div>
 
 </body>
-
 </html>

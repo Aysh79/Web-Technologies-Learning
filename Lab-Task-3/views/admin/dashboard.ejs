@@ -27,6 +27,8 @@
 
         <main class="admin-main">
 
+            <% if (success && success.length > 0) { %><div class="flash-success"><%= success.join(" ") %></div><% } %>
+            <% if (error && error.length > 0) { %><div class="flash-error"><%= error.join(" ") %></div><% } %>
             <h1>Product Dashboard</h1>
 
             <table class="admin-table">

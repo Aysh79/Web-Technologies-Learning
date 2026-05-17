@@ -1,43 +1,72 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <title>Profile</title>
-
+    <title>My Profile – Netflix Shop</title>
     <link rel="stylesheet" href="/style1.css">
-
 </head>
 
-<body class="auth-page">
+<body class="profile-page">
 
-    <div class="auth-container">
+    <header class="profile-header">
+        <a class="profile-logo" href="/">NETFLIX</a>
+        <nav class="profile-nav">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <% if (currentUser.role === 'admin') { %>
+                <a href="/admin">Admin Panel</a>
+            <% } %>
+            <a href="/logout" class="profile-logout">Logout</a>
+        </nav>
+    </header>
 
-        <h1>My Profile</h1>
+    <main class="profile-main">
+        <section class="profile-hero">
+            <p>Account</p>
+            <h1>My Profile</h1>
+        </section>
 
-        <p>
+        <% if (success && success.length > 0) { %>
+            <p class="auth-success"><%= success.join(" ") %></p>
+        <% } %>
 
-            Name:
-            <%= currentUser.name %>
+        <% if (error && error.length > 0) { %>
+            <p class="auth-error"><%= error.join(" ") %></p>
+        <% } %>
 
-        </p>
+        <section class="profile-content">
+            <div class="profile-avatar">
+                <%= currentUser.name.charAt(0).toUpperCase() %>
+            </div>
 
-        <p>
+            <div class="profile-details">
+                <h2><%= currentUser.name %></h2>
+                <p class="profile-email"><%= currentUser.email %></p>
 
-            Email:
-            <%= currentUser.email %>
+                <div class="profile-info-grid">
+                    <div>
+                        <span>Name</span>
+                        <strong><%= currentUser.name %></strong>
+                    </div>
 
-        </p>
+                    <div>
+                        <span>Email</span>
+                        <strong><%= currentUser.email %></strong>
+                    </div>
 
-        <p>
+                    <div>
+                        <span>Role</span>
+                        <strong><%= currentUser.role %></strong>
+                    </div>
 
-            Role:
-            <%= currentUser.role %>
+                    <div>
+                        <span>Status</span>
+                        <strong>Logged in</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </p>
-
-    </div>
+    </main>
 
 </body>
-
 </html>
