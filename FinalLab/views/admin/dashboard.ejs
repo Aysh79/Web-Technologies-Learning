@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="/style1.css">
+
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <aside class="admin-sidebar">
+
+            <h2>NETFLIX ADMIN</h2>
+
+            <a href="/admin">Dashboard</a>
+
+            <a href="/admin/add">Add Product</a>
+
+            <a href="/sales">Sales Dashboard</a>
+
+            <a href="/">Home</a>
+
+        </aside>
+
+        <main class="admin-main">
+
+            <% if (success && success.length > 0) { %><div class="flash-success"><%= success.join(" ") %></div><% } %>
+            <% if (error && error.length > 0) { %><div class="flash-error"><%= error.join(" ") %></div><% } %>
+            <h1>Product Dashboard</h1>
+
+            <table class="admin-table">
+
+                <tr>
+
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                <% products.forEach(product => { %>
+
+                    <tr>
+
+                        <td>
+                            <img
+                                src="<%= product.image %>"
+                                class="admin-product-image"
+                            >
+                        </td>
+
+                        <td><%= product.name %></td>
+
+                        <td>$<%= product.price %></td>
+
+                        <td><%= product.stock %></td>
+
+                        <td><%= product.category %></td>
+
+                        <td class="admin-actions">
+
+                            <a
+                                href="/admin/edit/<%= product._id %>"
+                                class="edit-btn"
+                            >
+                                Edit
+                            </a>
+
+                            <a
+                                href="/admin/delete/<%= product._id %>"
+                                class="delete-btn"
+
+                                onclick="
+                                    return confirm(
+                                        'Delete this product?'
+                                    )
+                                "
+                            >
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <% }) %>
+
+            </table>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

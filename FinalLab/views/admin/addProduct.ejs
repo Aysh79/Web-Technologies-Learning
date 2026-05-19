@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Product</title>
+
+    <link rel="stylesheet" href="/style1.css">
+
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="admin-sidebar">
+
+            <h2>NETFLIX ADMIN</h2>
+
+            <a href="/admin">Dashboard</a>
+
+            <a href="/admin/add">Add Product</a>
+
+            <a href="/">Home</a>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+            <div class="admin-form-container">
+
+                <h1>Add New Product</h1>
+
+                <form
+                    action="/admin/add"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="admin-form"
+                >
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Product Name"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        name="price"
+                        placeholder="Price"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        name="category"
+                        placeholder="Category"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        name="stock"
+                        placeholder="Stock"
+                        required
+                    >
+
+
+                    <label class="upload-label">
+                        Upload Product Image
+                    </label>
+
+                    <input
+                        type="file"
+                        name="image"
+                        required
+                    >
+
+                    <button type="submit">
+                        Add Product
+                    </button>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

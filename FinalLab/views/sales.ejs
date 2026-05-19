@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Sales Stats</title>
+  <link rel="stylesheet" href="/style1.css">
+</head>
+
+<body class="sales-page">
+  <main class="sales-container">
+    <div class="sales-header">
+      <div>
+        <p>Live Store Stats</p>
+        <h1>Sales Dashboard</h1>
+      </div>
+
+      <div class="sales-actions">
+        <a href="/">Back to Home</a>
+        <% if (isAdmin) { %>
+          <a href="/admin">Admin Panel</a>
+        <% } %>
+      </div>
+    </div>
+
+    <section class="sales-cards">
+      <div class="sales-card">
+        <span>Total Orders</span>
+        <strong class="sales-value orders" id="orders">0</strong>
+      </div>
+
+      <div class="sales-card">
+        <span>Top Product</span>
+        <strong class="sales-value product" id="product">N/A</strong>
+      </div>
+
+      <% if (isAdmin) { %>
+        <div class="sales-card admin-revenue-card">
+          <span>Total Revenue</span>
+          <strong class="sales-value revenue" id="revenue">Rs. 0</strong>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/sales.js"></script>
+</body>
+</html>
