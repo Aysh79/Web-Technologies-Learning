@@ -4,8 +4,18 @@ const session = require("express-session");
 const { MongoStore } = require("connect-mongo");
 const flash = require("connect-flash");
 require("dotenv").config();
+const path = require("path");
 
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+
+app.use(express.static(path.join(__dirname, "public")));
+
+
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/ecommerce";
 
@@ -28,6 +38,14 @@ app.use(
 );
 
 app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+
+  res.locals.currentUser = req.session.user || null;
+
+  next();
+});
 
 app.use("/api/v1/auth", require("./routes/api/authApiRoutes"));
 app.use("/api/v1/products", require("./routes/api/productApiRoutes"));
@@ -39,8 +57,12 @@ app.use("/api", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("API is running...");
+  res.render("index");
 });
+
+app.use("/", require("./routes/authRoutes"));
+app.use("/", require("./routes/productRoutes"));
+app.use("/", require("./routes/adminRoutes"));
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
